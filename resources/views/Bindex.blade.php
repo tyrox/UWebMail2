@@ -20,43 +20,18 @@
         <section>            
             <div class="card-panel teal lighten-4">                
                     <h5 class=""> Login <b>UWebMail</b></h5>
-                <div class="row card-panel  container">
-                    <!--Datos del login-->
-                    <div class="">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s4">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    <input id="user" type="text" class="validate">
-                                    <label for="user">User</label>
-                                </div>
-                                <div class="input-field col s4">
-                                    <i class="material-icons prefix">vpn_key</i>
-                                    <input id="password" type="password" class="validate">
-                                    <label for="password">Password</label>
-                                </div>
-                                <div clas="row s3">
-                                    <br>
-                                    
-                                    <div class="input-field col s2">
-                                        <div class="center">
-                                            <button class="btn waves-effect waves-light" type="submit" name="enter">Enter                                            
-                                                <a href="dash.php"></a>
-                                            </button>                                        
-                                        </div>                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="input-field col s1">
-                                        <div class="center">
-                                            <button class="btn waves-effect waves-light" type="submit" name="register">Register                                            
-                                                <a href="dash.php"></a>
-                                            </button>                                        
-                                        </div>                                    
-                                    </div>
+
+                {!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
+                    <div class="form-group">
+                        {!!Form::label('correo','Correo:')!!}   
+                        {!!Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Ingresa tu correo'])!!}
                     </div>
-                </div>                     
+                    <div class="form-group">
+                        {!!Form::label('contrasena','Contraseña:')!!}   
+                        {!!Form::password('password',['class'=>'form-control', 'placeholder'=>'Ingresa tu contraseña'])!!}
+                    </div>
+                    {!!Form::submit('Iniciar',['class'=>'btn btn-primary'])!!}
+                {!!Form::close()!!}                     
             </div>
             @yield('contenido')   
         </section>
