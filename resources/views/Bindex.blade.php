@@ -16,22 +16,43 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">        
         @yield('head')
     </head>
-    <body class="card-panel">
-        <section>            
-            <div class="card-panel teal lighten-4">                
-                    <h5 class=""> Login <b>UWebMail</b></h5>
-
-                {!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
-                    <div class="form-group">
-                        {!!Form::label('correo','Correo:')!!}   
-                        {!!Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Ingresa tu correo'])!!}
+    <body class="teal lighten-5">
+        <section>
+              <nav>
+                    <div class="nav-wrapper">
+                        <a  class="brand-logo"> UWebMail</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="sass.html">Registrar</a></li>
+                            
+                        </ul>
                     </div>
-                    <div class="form-group">
+                </nav>
+   
+            <div class="container">                  
+                <div class="container">
+                <div class="row">
+                    <div class="col s12 m8">
+                        <div>
+
+                            <h5>Login</h5>                            
+                        </div>
+                        
+                        <div class="card-panel teal">
+                {!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
+                    <div class="">
+                        {!!Form::label('usuario','Usuario:')!!}   
+                        {!!Form::text('text',null,['class'=>'form-control', 'placeholder'=>'Ingresa tu usuario'])!!}
+                    </div>
+                    <div class="">
                         {!!Form::label('contrasena','Contraseña:')!!}   
                         {!!Form::password('password',['class'=>'form-control', 'placeholder'=>'Ingresa tu contraseña'])!!}
                     </div>
                     {!!Form::submit('Iniciar',['class'=>'btn btn-primary'])!!}
-                {!!Form::close()!!}                     
+                    {!!Form::close()!!}                     
+                    </div>
+                    </div>
+                    </div>
+                </div>
             </div>
             @yield('contenido')   
         </section>

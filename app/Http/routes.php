@@ -18,7 +18,8 @@ Route::resource('mail','MailController'); //Ruta del correo
 
 Route::get('/register', 'FrontController@get_register');
 
-Route::resource('log', 'LogController'); 
+Route::resource('log', 'LogController');
+
 //Route::post('/register', 'RegisterController@post_register');
 //{!!Form::open(['route'=>'mail.store','method' => 'POST', 'url' => 'register']!!}
 //{!!Form::open(array('method' => 'POST', 'url' => 'register'))!!}
