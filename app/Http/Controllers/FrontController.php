@@ -42,8 +42,13 @@ class FrontController extends Controller
     public function store(Request $request)
     {
         //
+        return View::make('register');
     }
-
+    public function inicio(Request $request)
+    {
+        //
+        return View('Bindex');
+    }
     /**
      * Display the specified resource.
      *

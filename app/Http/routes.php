@@ -13,10 +13,14 @@
 
 
 Route::get('/', 'FrontController@index'); //Ruta de inicio
+Route::resource('home', 'FrontController@index'); //Ruta d~e inicio
+
+//Route::resource('inicio', 'FrontController'); //Ruta de inicio
 
 Route::resource('mail','MailController'); //Ruta del correo
 
 Route::get('/register', 'FrontController@get_register');
+Route::resource('register', 'FrontController');
 
 Route::resource('log', 'LogController');
 

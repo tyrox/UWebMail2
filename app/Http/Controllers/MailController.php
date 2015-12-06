@@ -39,7 +39,7 @@ class MailController extends Controller
     public function store(Request $request)
     {
         Mail::send('emails.contact',$request->all(), function($msj){
-            $msj->subject('Activate your UWebMail account to start sending email');
+            $msj->subject('Correo de activación');
             $msj->to('tyrox@live.com');
         });
         Session::flash('message','Mensahe enviado correctamente');

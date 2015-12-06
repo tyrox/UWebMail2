@@ -1,20 +1,5 @@
 @extends('layouts.principal')
-	@section('content')
-	@include('alerts.success')
-		<div class="contact-content">
-			<div class="top-header span_top">
-				<div class="logo">
-					<a href="index.html"> HOLA</a>
-					<p>Movie Theater</p>
-				</div>
-				<div class="search v-search">
-					<form>
-						<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
-						<input type="submit" value="">
-					</form>
-				</div>
-				<div class="clearfix"></div>
-			</div>
+	@section('content')					
 			<!---contact-->
 <div class="main-contact">
 		 <h3 class="head">CONTACT</h3>

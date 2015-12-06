@@ -16,13 +16,18 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">        
         @yield('head')
     </head>
-    <body class="teal lighten-5">
+    <body class="">
         <section>
               <nav>
                     <div class="nav-wrapper">
                         <a  class="brand-logo"> UWebMail</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="sass.html">Registrar</a></li>
+                            
+                            {!!Form::open(['route'=>'register.store', 'method'=>'register'])!!}
+                                
+                            <li><a >{!!Form::submit('Registrar',['class'=>'btn '])!!}</a></li>
+
+                            {!!Form::close()!!}
                             
                         </ul>
                     </div>
@@ -33,7 +38,6 @@
                 <div class="row">
                     <div class="col s12 m8">
                         <div>
-
                             <h5>Login</h5>                            
                         </div>
                         

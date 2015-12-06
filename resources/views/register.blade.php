@@ -16,29 +16,48 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">        
         @yield('head')
     </head>
-    <body class="card-panel">
+    <body class="">
         
-        <section>            
-            <div class="card-panel teal lighten-4">                                                
+        <section>  
+            <nav>
+                    <div class="nav-wrapper">
+                        <a  class="brand-logo"> UWebMail</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            
+                            {!!Form::open(['route'=>'home.index', 'method'=>'/'])!!}
+                                
+                            <li><a >{!!Form::submit('Inicio',['class'=>'btn '])!!}</a></li>
+
+                            {!!Form::close()!!}
+                            
+                        </ul>
+                    </div>
+                </nav>       
+            <div class="">                                                
                     <!--Registrarse--> 
                     
                     <div class="container">
                         
                         <div class="container">
-                            <h5 class=""> Create your Account</h5>
-                            <div class="row s card-panel container">
+                            <h5 class="">Crea tu cuenta</h5>
+                            <div class="row">
                             
-                                <div class="col s12">
-                                    <div class="contact-form">
+                                <div class="col s12 m8 ">
+                                    <div class="card-panel teal">
                                         {!!Form::open(['route'=>'mail.store','method'=>'POST'])!!}
-                                        <div class="col-md-6 contact-left">
-                                            {!!Form::text('name',null,['placeholder' => 'Nombre'])!!}
-                                            {!!Form::text('email',null,['placeholder' => 'Email'])!!}
+                                        <div class="">
+                                            {!!Form::label('usuario','Usuario:')!!}   
+                                            {!!Form::text('user',null,['class'=>'form-control', 'placeholder'=>'Ingresa tu usuario'])!!}
+                                            {!!Form::label('nombre','Nombre:')!!} 
+                                            {!!Form::text('name',null,['placeholder' => 'Ingresa tu nombre'])!!}
+                                            {!!Form::label('correo','Correo:')!!}
+                                            {!!Form::email('email',null,['placeholder' => 'Ingresa tu correo'])!!}
+                                            {!!Form::label('contrasenna','Contraseña:')!!}
+                                            {!!Form::password('contrasenna',null,['placeholder' => 'Ingresa la contraseña'])!!}
+                                            {!!Form::label('contrasenna2','Contraseña:')!!}
+                                            {!!Form::password('password2',null,['placeholder' => 'Confirmar la contraseña'])!!}
                                         </div>
-                                        <div class="col-md-6 contact-right">
-                                            {!!Form::textarea('mensaje',null,['placeholder' => 'Mensaje'])!!}
-                                        </div>
-                                        {!!Form::submit('SEND')!!}
+                                        {!!Form::submit('OK',['class'=>'btn btn-primary'])!!}
                                         {!!Form::close()!!}
                                     </div>
                                 </div> 
