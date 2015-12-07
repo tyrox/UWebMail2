@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MailUpdateRequest;
+use App\Http\Requests\MailCreateRequest;
 use Mail;
+use App\Correo;
 use Session;
 use Redirect;
 use View;
@@ -38,14 +41,21 @@ class MailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MailCreateRequest $request)
     {
-        Mail::send('emails.contact',$request->all(), function($msj){
-            $msj->subject('Correo de activación');
-            $msj->to('tyrox@live.com');
+        Correo::create([
+            'email' => $request['email'],
+            'subject' => $request['subject'],
+            'content' => $request['content']
+            ]);
+
+        Mail::send('emails.machote',$request->all(), function($msj)use ($request) {
+            $msj->subject($request->subject);
+            $msj->to($request->email);
+            $msj->to($request->email);
         });
         Session::flash('message','Mensahe enviado correctamente');
-        return View::make('auth.login');
+        return View::make('emails.dash');
     }
 
     /**
@@ -77,7 +87,7 @@ class MailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MailUpdateRequest $request, $id)
     {
         //
     }
