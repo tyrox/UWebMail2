@@ -1,15 +1,6 @@
  @extends('auth.register')
 @section('content')            
-@if(count($errors)>0)
-
-<div>
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{!!$error!!}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+@include('errors.error')
  {!!Form::open(['route'=>'user.store','method'=>'POST'])!!}
                                         
     {!!Form::label('usuario','User:')!!}   

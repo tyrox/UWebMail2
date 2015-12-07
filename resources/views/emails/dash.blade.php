@@ -28,7 +28,7 @@
             <a  class="brand-logo"> UWebMail</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                {!!Form::open(['route'=>'home.index', 'method'=>'/'])!!}
+                {!!Form::open(['route'=>'index.index', 'method'=>'get'])!!}
 
                 <li><a >{!!Form::submit('Salir',['class'=>'btn '])!!}</a></li>
 
@@ -51,7 +51,7 @@
                             <a href="" class="collection-item">Enviados</a>
 
                         </div>
-                        {!!Form::open(['route'=>'home.index', 'method'=>'/'])!!}
+                        {!!Form::open(['route'=>'mail.create', 'method'=>'get'])!!}
                         <a class="tooltipped" data-position="right" data-delay="50" data-tooltip="Crear un nuevo correo">
                             {!!Form::submit('Nuevo',['class'=>'btn '])!!}</a>
                         {!!Form::close()!!}
