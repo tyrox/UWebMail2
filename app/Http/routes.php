@@ -10,20 +10,21 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//routas para la autenticacion (default)
+/*Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+*/
+Route::get('/', 'FrontController@index');
+Route::resource('index', 'FrontController');
+Route::resource('user', 'UserController');
 
-Route::get('/', 'FrontController@index'); //Ruta de inicio
-Route::resource('home', 'FrontController@index'); //Ruta d~e inicio
-
-//Route::resource('inicio', 'FrontController'); //Ruta de inicio
-
-Route::resource('mail','MailController'); //Ruta del correo
-
-Route::get('/register', 'FrontController@get_register');
-Route::resource('register', 'FrontController');
+Route::get('mail', 'MailController@index'); //Ruta de inicio
 
 Route::resource('log', 'LogController');
+//Route::resource('home','MailController'); //Ruta del correo
 
-//Route::post('/register', 'RegisterController@post_register');
-//{!!Form::open(['route'=>'mail.store','method' => 'POST', 'url' => 'register']!!}
-//{!!Form::open(array('method' => 'POST', 'url' => 'register'))!!}
+

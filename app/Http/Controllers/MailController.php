@@ -18,6 +18,7 @@ class MailController extends Controller
     public function index()
     {
         //
+        return View('emails.dash');
     }
 
     /**
@@ -27,7 +28,8 @@ class MailController extends Controller
      */
     public function create()
     {
-        //
+        //se crea la vista para correo
+        return View('emails.correo');
     }
 
     /**
@@ -43,7 +45,7 @@ class MailController extends Controller
             $msj->to('tyrox@live.com');
         });
         Session::flash('message','Mensahe enviado correctamente');
-        return View::make('Bindex');
+        return View::make('auth.login');
     }
 
     /**

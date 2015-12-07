@@ -16,21 +16,12 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return View::make('Bindex');
+        return View::make('auth.l_login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function get_register()
-    {
-        return View::make('register');
-    }
+
     public function create()
     {
-        //
     }
 
     /**
@@ -42,12 +33,8 @@ class FrontController extends Controller
     public function store(Request $request)
     {
         //
-        return View::make('register');
-    }
-    public function inicio(Request $request)
-    {
-        //
-        return View('Bindex');
+        return View::make('auth.l_register');
+        
     }
     /**
      * Display the specified resource.
