@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use Session;
+use Redirect;
 use App\Http\Requests;
+use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 
 class LogController extends Controller
@@ -35,9 +38,22 @@ class LogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
         //
+        if (Auth::attempt(['user' => $request['user'], 'password'=> $request['password']])) {
+            # code...
+            return Redirect::to('mail');
+        }
+        Session::flash('message-error', 'Check your user and password');
+        return Redirect::to('/');
+    }
+    public function logout(LoginRequest $request)
+    {
+        //
+        Auth::logout();
+
+        return Redirect::to('/');
     }
 
     /**

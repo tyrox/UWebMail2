@@ -1,24 +1,19 @@
 @extends('auth.login')
-@include('errors.error')
+
 	@section('content')
-	<form method="POST" action="/auth/login">
-                                    {!! csrf_field() !!}
-                                    <div>
-                                        Email
-                                        <input type="email" name="email" value="{{ old('email') }}">
-                                    </div>
-
-                                    <div>
-                                        Password
-                                        <input type="password" name="password" id="password">
-                                    </div>
-
-                                    <div>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </div>
-
-                                    <div>
-                                        <button class="btn waves-effect waves-light" type="submit">Login</button>
-                                    </div>
-                                </form>
+    @include('errors.error')
+    @if(Session::has('message-error'))
+    <div>
+        {{Session::get('message-error')}}
+    </div>
+    @endif
+	{!!Form::open(['route'=>'log.store','method'=>'POST'])!!}
+                                        
+    {!!Form::label('usuario','User:')!!}   
+    {!!Form::text('user',null,['class'=>'form-control', 'placeholder'=>''])!!}    
+    {!!Form::label('contrasenna','Password:')!!}
+    {!!Form::password('password',null,['placeholder' => 'Password'])!!}
+                                        
+    {!!Form::submit('OK',['class'=>'btn btn-primary'])!!}
+{!!Form::close()!!}
 	@endsection

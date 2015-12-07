@@ -26,7 +26,7 @@
                             
                             {!!Form::open(['route'=>'user.create', 'method'=>'get'])!!}
                                 
-                            <li><a >{!!Form::submit('Registrar',['class'=>'btn '])!!}</a></li>
+                            <li><a >{!!Form::submit('Register',['class'=>'btn '])!!}</a></li>
 
                             {!!Form::close()!!}
                             

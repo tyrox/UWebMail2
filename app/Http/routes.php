@@ -25,7 +25,8 @@ Route::resource('user', 'UserController');
 Route::get('mail', 'MailController@index'); //Ruta de inicio
 Route::resource('mail', 'MailController');
 
-Route::resource('log', 'LogController');
+Route::resource('log', 'LogController'); //Iniciar sesion
+Route::get('logout', 'LogController@logout'); //Cerrar sesion
 //Route::resource('home','MailController'); //Ruta del correo
 
 
