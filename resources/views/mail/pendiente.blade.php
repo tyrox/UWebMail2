@@ -43,15 +43,18 @@
         </thead>
         @foreach($correos as $correo)
         <tbody>
-        @if($correo->status == '0')
-            <td>{{$correo->email}}</td>
-            <td>{{$correo->subject}}</td>
-            <td>{{$correo->content}}</td>
-            <td>
-                {!!link_to_route('mail.edit', $title = 'Edit', $correo->id, $attributes = ['class'=>'btn blue']);!!}                
+        
+        @if($correo->user == (Auth::user()->id)) 
+            @if($correo->status == '0')
+                <td>{{$correo->email}}</td>
+                <td>{{$correo->subject}}</td>
+                <td>{{$correo->content}}</td>
+                <td>
+                    {!!link_to_route('mail.edit', $title = 'Edit', $correo->id, $attributes = ['class'=>'btn blue']);!!}                
                 
-            </td>
+                </td>
             @endif
+        @endif
         </tbody>
         @endforeach
     </table> 

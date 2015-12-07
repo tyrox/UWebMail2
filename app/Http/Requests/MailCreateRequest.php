@@ -25,7 +25,7 @@ class MailCreateRequest extends Request
     {
         return [
             //'user' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'content' => 'required',
             'subject' => 'required',
             

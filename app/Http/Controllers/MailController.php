@@ -10,6 +10,7 @@ use App\Correo;
 use Session;
 use Redirect;
 use View;
+use Auth;
 
 class MailController extends Controller
 {
@@ -50,17 +51,19 @@ class MailController extends Controller
      */
     public function store(MailCreateRequest $request)
     {
-        Correo::create([
-            'email' => $request['email'],
-            'subject' => $request['subject'],
-            'content' => $request['content']
-            ]);
+        
 
         Mail::send('mail.machote',$request->all(), function($msj)use ($request) {
             $msj->subject($request->subject);
             $msj->to($request->email);
             $msj->to($request->email);
         });
+        Correo::create([
+            'user'=> (Auth::user()->id),
+            'email' => $request['email'],
+            'subject' => $request['subject'],
+            'content' => $request['content']
+            ]);
         Session::flash('message','Mensaje creado correctamente');
         return Redirect('/mail')->with('message', 'store');
     }
