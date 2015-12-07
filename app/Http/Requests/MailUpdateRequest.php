@@ -23,9 +23,8 @@ class MailUpdateRequest extends Request
      */
     public function rules()
     {
-        return [
-            'user' => 'required|unique:users,user',
-            'email' => 'required|unique',
+        return [            
+            'email' => 'required',
             'content' => 'required',
             'subject' => 'required',
             //

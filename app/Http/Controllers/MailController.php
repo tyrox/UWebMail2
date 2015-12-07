@@ -21,8 +21,8 @@ class MailController extends Controller
     public function index()
     {
         //
-        $correos = \App\Correo::All();
-        return View('emails.pendiente', compact('correos'));
+        $correos = Correo::paginate(7);
+        return View('mail.pendiente', compact('correos'));
     }
 
     /**
@@ -33,7 +33,7 @@ class MailController extends Controller
     public function create()
     {
         //se crea la vista para correo
-        return View('emails.correo');
+        return View('mail.correo');
     }
 
     /**
@@ -50,12 +50,12 @@ class MailController extends Controller
             'content' => $request['content']
             ]);
 
-        Mail::send('emails.machote',$request->all(), function($msj)use ($request) {
+        Mail::send('mail.machote',$request->all(), function($msj)use ($request) {
             $msj->subject($request->subject);
             $msj->to($request->email);
             $msj->to($request->email);
         });
-        Session::flash('message','Mensahe enviado correctamente');
+        Session::flash('message','Mensaje creado correctamente');
         return Redirect('/mail')->with('message', 'store');
     }
 
@@ -79,6 +79,8 @@ class MailController extends Controller
     public function edit($id)
     {
         //
+        $correo = Correo::find($id);
+        return View('mail.edit', ['correo'=>$correo]);
     }
 
     /**
@@ -91,6 +93,12 @@ class MailController extends Controller
     public function update(MailUpdateRequest $request, $id)
     {
         //
+        $correo = Correo::find($id);
+        $correo->fill($request->All());
+        $correo->save();
+
+        Session::flash('message','Mensaje actualizado correctamente');
+        return Redirect('/mail')->with('message', 'update');
     }
 
     /**
@@ -102,5 +110,8 @@ class MailController extends Controller
     public function destroy($id)
     {
         //
+        Correo::destroy($id);
+        Session::flash('message','Correo eliminado correctamente');
+        return Redirect('/mail')->with('message', 'delete');
     }
 }
