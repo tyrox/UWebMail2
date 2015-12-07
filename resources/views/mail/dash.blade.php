@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang='es'>
 <head>
     @yield('head')
@@ -47,12 +47,17 @@
                         <br>
                         <strong>Bandeja</strong>
                         <div class="collection">
-                            <a href="" class="collection-item">Salida</a>
-                            <a href="" class="collection-item">Enviados</a>
-
+                        
+                            <a  href="{!!URL::to('/mail/dash')!!}" class="collection-item">pendiente
+                            </a>
+                        
+                        {!!Form::open(['route'=>'mail.index', 'method'=>'get'])!!}
+                            <a  class="collection-item">
+                            {!!Form::submit('Enviados',['class'=>'btn'])!!}</a>
+                        {!!Form::close()!!}
                         </div>
                         {!!Form::open(['route'=>'mail.create', 'method'=>'get'])!!}
-                        <a class="tooltipped" data-position="right" data-delay="50" data-tooltip="Crear un nuevo correo">
+                        <a class="tooltipped" data-position="button" data-delay="50" data-tooltip="Crear un nuevo correo">
                             {!!Form::submit('Nuevo',['class'=>'btn '])!!}</a>
                         {!!Form::close()!!}
                     </div>
@@ -63,7 +68,7 @@
                         @section('content')
 
                         <div class="collection teal lighten-2">
-                            <a class="">Soy el contenido</a>
+                           
                         </div>
                        @show
                     </div>
