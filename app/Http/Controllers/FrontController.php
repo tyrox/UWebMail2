@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
+    public function __construct()
+    {
+        # code...
+        $this->middleware('auth', ['only'=> 'mail']);
+    }
+
     /**
      * Display a listing of the resource.
      *
