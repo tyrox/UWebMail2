@@ -27,13 +27,19 @@
         <div class="nav-wrapper">
             <a  class="brand-logo"> UWebMail</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-                {!!Form::open(['route'=>'index.index', 'method'=>'get'])!!}
-
-                <li><a >{!!Form::submit('Salir',['class'=>'btn '])!!}</a></li>
-
-                {!!Form::close()!!}
-
+                <li>
+                    <i class="material-icons">account_circle</i>
+                </li>
+                
+                <li>
+                    <a >
+                    {!!Auth::user()->name!!}
+                    </a>
+                </li>        
+                <li>
+                    
+                    <a href="/logout"><i class="material-icons" >highlight_off</i></a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -48,13 +54,15 @@
                         <strong>Bandeja</strong>
                         <div class="collection">
                         
-                            <a  href="{!!URL::to('/mail/dash')!!}" class="collection-item">pendiente
+                            <a  href="{!!URL::to('/mail')!!}" class="collection-item">PENDIENTE
                             </a>
                         
                         {!!Form::open(['route'=>'mail.index', 'method'=>'get'])!!}
                             <a  class="collection-item">
                             {!!Form::submit('Enviados',['class'=>'btn'])!!}</a>
                         {!!Form::close()!!}
+                        <a  href="{!!URL::to('/mail/send')!!}" class="collection-item">ENVIADOS
+                            </a>
                         </div>
                         {!!Form::open(['route'=>'mail.create', 'method'=>'get'])!!}
                         <a class="tooltipped" data-position="button" data-delay="50" data-tooltip="Crear un nuevo correo">

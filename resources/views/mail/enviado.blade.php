@@ -24,7 +24,7 @@
         </thead>
         @foreach($correos as $correo)
         <tbody>
-        @if($correo->status == '1')
+        @if($correo->status == '0')
             <td>{{$correo->email}}</td>
             <td>{{$correo->subject}}</td>
             <td>{{$correo->content}}</td>

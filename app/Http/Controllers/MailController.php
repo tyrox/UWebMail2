@@ -35,6 +35,7 @@ class MailController extends Controller
         //se crea la vista para correo
         return View('mail.correo');
     }
+    
 
     /**
      * Store a newly created resource in storage.
