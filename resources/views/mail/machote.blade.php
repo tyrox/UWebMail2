@@ -7,7 +7,7 @@
 <body>
 	<p>Buenas.</p>
 	<br>
-	<p><stron>Mensaje: </stron>{!!$content!!}</p>
+	<p><stron></stron>{!!$content!!}</p>
 	<br>
 	<p>Gracias.</p>
 </body>
