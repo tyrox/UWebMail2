@@ -21,7 +21,8 @@ class MailController extends Controller
     public function index()
     {
         //
-        return View('emails.dash');
+        $correos = \App\Correo::All();
+        return View('emails.pendiente', compact('correos'));
     }
 
     /**
@@ -55,7 +56,7 @@ class MailController extends Controller
             $msj->to($request->email);
         });
         Session::flash('message','Mensahe enviado correctamente');
-        return View::make('emails.dash');
+        return Redirect('/mail')->with('message', 'store');
     }
 
     /**
