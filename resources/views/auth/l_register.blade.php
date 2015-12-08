@@ -11,6 +11,7 @@
     {!!Form::email('email',null,['placeholder' => 'E-mail'])!!}
     {!!Form::label('contrasenna','Password:')!!}
     {!!Form::password('password',null,['placeholder' => 'Password'])!!}
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         
     {!!Form::submit('OK',['class'=>'btn btn-primary'])!!}
 {!!Form::close()!!}

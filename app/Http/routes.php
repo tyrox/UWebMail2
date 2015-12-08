@@ -21,6 +21,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/', 'FrontController@index');
 Route::resource('index', 'FrontController');
 Route::resource('user', 'UserController');
+Route::get('user/authenticate/{id}', 'UserController@authenticate');
 
 Route::resource('mail/sent', 'MailController@sent');
 Route::get('mail', 'MailController@index'); //Ruta de inicio
