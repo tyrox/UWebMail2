@@ -9,6 +9,7 @@
 	<br>
 	<p><stron></stron>{!!$content!!}</p>
 	<br>
-	<p>Gracias.</p>
+	<br>
+	<p>UWebMail.</p>
 </body>
 </html>
