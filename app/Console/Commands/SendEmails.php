@@ -25,7 +25,7 @@ class SendEmails extends Command
      *
      * @var string
      */
-    protected $description = 'Send drip e-mails to a user';
+    protected $description = 'Send e-mails to a user';
 
     /**
      * Create a new command instance.
