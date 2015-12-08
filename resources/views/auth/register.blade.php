@@ -3,12 +3,12 @@
     <head>
         <title>
             @section('titulo')
-                Register
+                WebMail
             @show
         </title>  
         <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link href='http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2014-12-13/8e71e0dbba20dd1cfd38d2734623f196.ico' rel='icon' type='image/vnd.microsoft.icon'/> 
     <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 
@@ -22,8 +22,9 @@
         
         <section>  
             <nav>
+                <a  class="brand-logo"> UWebMail<i class="material-icons">mail_outline</i></a>
                     <div class="nav-wrapper">
-                        <a  class="brand-logo"> UWebMail</a>
+                        
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             
                             {!!Form::open(['route'=>'index.index', 'method'=>'get'])!!}

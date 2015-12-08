@@ -58,7 +58,7 @@
         </tbody>
         @endforeach
     </table> 
-    {!!$correos->render()!!} 
+    
 
 </div>
 @endsection

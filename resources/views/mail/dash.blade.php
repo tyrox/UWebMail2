@@ -4,9 +4,10 @@
     @yield('head')
     <title>
        
-            UWebMail
+            WebMail
       
     </title>
+    <link href='http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2014-12-13/8e71e0dbba20dd1cfd38d2734623f196.ico' rel='icon' type='image/vnd.microsoft.icon'/> 
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -20,13 +21,15 @@
 
 </head>
 
-<body class="">
+<body >
 
     <section>
     <nav>
+        <a  class="brand-logo"> UWebMail<i class="material-icons">mail_outline</i></a>
+
         <div class="nav-wrapper">
-            <a  class="brand-logo"> UWebMail</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                
+            <ul  class="right hide-on-med-and-down">
                 <li>
                     <i class="material-icons">account_circle</i>
                 </li>
@@ -36,12 +39,13 @@
                     {!!Auth::user()->name!!}
                     </a>
                 </li>        
-                <li>
-                    
-                    <a href="/logout"><i class="material-icons" >highlight_off</i></a>
+                <li>                    
+                    <a href="/logout"><i class="material-icons" >highlight_off</i></a> 
+
                 </li>
             </ul>
         </div>
+        
     </nav>
 
     </section>
@@ -51,23 +55,28 @@
                 <div class="row">
                     <div class="col s12 m4 l3 ">
                         <br>
+
                         <strong>Bandeja</strong>
                         <div class="collection">
                         
-                            <a  href="{!!URL::to('/mail')!!}" class="collection-item">PENDIENTE
+                            <a  href="{!!URL::to('/mail')!!}" class="collapsible-header active" >PENDIENTE
+                                <i class="material-icons">backup</i>
                             </a>
-                        
+                        <!--Let browser know website is optimized for mobile
                         {!!Form::open(['route'=>'mail.index', 'method'=>'get'])!!}
                             <a  class="collection-item">
                             {!!Form::submit('Enviados',['class'=>'btn'])!!}</a>
                         {!!Form::close()!!}
-                        <a  href="{!!URL::to('/mail/send')!!}" class="collection-item">ENVIADOS
+                        -->
+                            <a  href="{!!URL::to('/mail/sent')!!}" class="collapsible-header active">ENVIADOS
+                                <i class="material-icons">done_all</i>
                             </a>
                         </div>
                         {!!Form::open(['route'=>'mail.create', 'method'=>'get'])!!}
                         <a class="tooltipped" data-position="button" data-delay="50" data-tooltip="Crear un nuevo correo">
                             {!!Form::submit('Nuevo',['class'=>'btn '])!!}</a>
                         {!!Form::close()!!}
+
                     </div>
 
                     <div class="col s12 m8 l9  ">
@@ -91,12 +100,19 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+{!!Html::script('js/script.js')!!}
     
 <script>
     $(document).ready(function(){
         $('.button-collapse').sideNav();
         $('.tooltipped').tooltip({delay: 50});
     });
+    $(".button-collapse").sideNav();
+    // Show sideNav
+$('.button-collapse').sideNav('show');
+// Hide sideNav
+$('.button-collapse').sideNav('hide');
+
 </script>
 </body>
 </html>

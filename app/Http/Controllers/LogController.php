@@ -41,11 +41,11 @@ class LogController extends Controller
     public function store(LoginRequest $request)
     {
         //
-        if (Auth::attempt(['user' => $request['user'], 'password'=> $request['password']])) {
+        if (Auth::attempt(['user' => $request['user'], 'password'=> $request['password'], 'status'=> '1'])) {
             # code...
             return Redirect::to('mail');
         }
-        Session::flash('message-error', 'Check your user and password');
+        Session::flash('message-error', 'Check your user and password. You most be authenticate');
         return Redirect::to('/');
     }
     public function logout(LoginRequest $request)

@@ -27,8 +27,14 @@ class MailController extends Controller
     public function index()
     {
         //
-        $correos = Correo::paginate(7);
+        $correos = Correo::All();
         return View('mail.pendiente', compact('correos'));
+    }
+    public function sent()
+    {
+        //
+        $correos = Correo::All();
+        return View('mail.enviado', compact('correos'));
     }
 
     /**

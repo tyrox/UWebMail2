@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use View;
+use Mail;
 use App\User;
 use App\Http\Requests;
 use App\Http\Requests\UserCreateRequest;
@@ -48,7 +49,13 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => bcrypt ($request['password'])
             ]);
-        return "Usuario registrado";
+
+        Mail::send('auth.forms.usrCorreo',$request->all(), function($msj)use ($request) {
+            $msj->subject('Activate your UWebMail account to start sending email');            
+            $msj->to($request->email);
+        });
+           
+        return View('auth.l_login');
         /*
         $inputs = Input::all();
 
