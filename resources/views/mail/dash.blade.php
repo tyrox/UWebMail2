@@ -59,7 +59,7 @@
                         <strong>Bandeja</strong>
                         <div class="collection">
                         
-                            <a  href="{!!URL::to('/mail')!!}" class="collapsible-header active" >PENDIENTE
+                            <a  href="{!!URL::to('/mail')!!}" class="collapsible-header active" >SALIDA
                                 <i class="material-icons">backup</i>
                             </a>
                         <!--Let browser know website is optimized for mobile
