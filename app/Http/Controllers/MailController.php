@@ -59,11 +59,11 @@ class MailController extends Controller
     {
         
 
-        Mail::send('mail.machote',$request->all(), function($msj)use ($request) {
+        /*Mail::send('mail.machote',$request->all(), function($msj)use ($request) {
             $msj->subject($request->subject);
             $msj->to($request->email);
             $msj->to($request->email);
-        });
+        });*/
         Correo::create([
             'user'=> (Auth::user()->id),
             'email' => $request['email'],
