@@ -45,7 +45,7 @@ class LogController extends Controller
             # code...
             return Redirect::to('mail');
         }
-        Session::flash('message-error', 'Check your user and password. You most be authenticate');
+        Session::flash('message-error', 'Check your user and password. You most be authenticated!');
         return Redirect::to('/');
     }
     public function logout(LoginRequest $request)
